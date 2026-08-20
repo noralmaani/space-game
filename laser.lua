@@ -4,17 +4,13 @@ function Laser:new(x, y)
     self.image = love.graphics.newImage("assets/laserPink.png")
     self.x = x
     self.y = y
-    self.speed = 700
+    self.speed = 1000
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
 end
 
 function Laser:update(dt)
     self.y = self.y + self.speed * dt
-    -- restart game once the player misses a shot
-    if self.y > love.graphics.getHeight() then
-        love.load()
-    end
 end
 
 function Laser:draw()
@@ -41,9 +37,9 @@ function Laser:checkCollision(obj)
 
         -- increase speed every time enemy is hit
         if obj.speed > 0 then
-            obj.speed = obj.speed + 50
+            obj.speed = obj.speed + 100
         else
-            obj.speed = obj.speed - 50
+            obj.speed = obj.speed - 100
         end
     end
 end

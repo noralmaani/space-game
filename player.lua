@@ -5,18 +5,23 @@ function Player:new()
     self.image = love.graphics.newImage("assets/shipPink_manned.png")
     self.x = 300
     self.y = 20
-    self.speed = 800
+    self.speed = 300
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
+    self.keytimer = 0
+    count = 0
 end
 
 function Player:keypressed(key)
-    if key == "space" then
-        table.insert(listOfLasers, Laser(self.x,  self.y))
+    if key == "space" and self.keytimer <= 0 then
+        table.insert(listOfLasers, Laser(self.x, self.y))
+        self.keytimer = 0.3
     end
 end
 
 function Player:update(dt)
+    self.keytimer = self.keytimer - dt
+
     if love.keyboard.isDown("left") then
         self.x = self.x - self.speed * dt
     elseif love.keyboard.isDown("right") then

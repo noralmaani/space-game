@@ -1,4 +1,4 @@
-2D space game written in Lua using [LÖVE](https://github.com/love2d/love?tab=readme-ov-file)
+2D UFO game written in Lua using [LÖVE](https://github.com/love2d/love?tab=readme-ov-file)
 
 Assets found in https://kenney.nl
 
